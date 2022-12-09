@@ -2,7 +2,7 @@
 
 * [Day 1](./day1): Java
 * [Day 2](./day2): C
-* Day 3: Python
+* [Day 3](./day3): Python
 * Day 4: C++
 * Day 5: VB.NET
 * Day 6: C#
