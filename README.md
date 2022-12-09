@@ -1,6 +1,6 @@
 # [2022 Advent Of Code](https://adventofcode.com/2022)
 
-* Day 1: Java
+* [Day 1](./day1): Java
 * Day 2: C
 * Day 3: Python
 * Day 4: C++
