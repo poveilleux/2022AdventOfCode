@@ -17,23 +17,15 @@ int main()
         int part2Index = part2.find("-");
         int part2Start = stoi(part2.substr(0, part2Index));
         int part2End = stoi(part2.substr(part2Index + 1, part2.length()));
-        //cout << part1Start << "_" << part1End << " | " << part2Start << "_" << part2End << "\n";
         
-        if (part1Start < part2Start && part1End > part2End) {
-            cout << "LINE: " << line << "\n";
+        if (part1Start <= part2Start && part1End >= part2End) {
             count++;
-        }
-        
-        
-        if (part2Start < part1Start && part2End > part1End) {
-            cout << "LINE: " << line << "\n";
+        } else if (part2Start <= part1Start && part2End >= part1End) {
             count++;
         }
     }
     
     cout << "Count: " << count;
-    //cin >> line;
-    
 
     return 0;
 }
