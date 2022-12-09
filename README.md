@@ -1,4 +1,4 @@
-# 2022AdventOfCode
+# [2022 Advent Of Code](https://adventofcode.com/2022)
 
 * Day 1: Java
 * Day 2: C
