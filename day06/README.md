@@ -3,4 +3,4 @@ Challenge: https://adventofcode.com/2022/day/6
 
 Part 1: 1300
 
-Part 2: 
+Part 2: 3986
