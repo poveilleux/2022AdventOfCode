@@ -22,22 +22,35 @@ $ ls
 8033020 d.log
 5626152 d.ext
 7214296 k";
-    $lines = explode(PHP_EOL, $input);
+class Item {
+	public string $name = "";
+	public array $children = [];
+	public int $size = 0;
+}
+
+    $lines = explode("\n", $input);
     $i = 0;
     $currentDir = array();
+    $tree = array();
+    $currentParent = null;
     foreach ($lines as $line) {
     	$line = str_replace(PHP_EOL, "", $line);
         if (str_starts_with($line, "$ cd ")) {
             $path = str_replace("$ cd ", "", $line);
             if (str_contains($path, "..")) {
-            	array_pop($currentDir);	
+            	array_pop($currentDir);
             } else {
             	array_push($currentDir, $path);
+            	$item = new Item;
+            	$item->name = $path;
+            	$tree[$path] = $item;
             }
-        	print_r($currentDir);
+        	#print_r($currentDir);
             #echo "CD: '$path'";
         }
         # echo "$i: $line\n";
         # $i++;
     }
-?>
+    
+	print_r($tree);
+?> 
