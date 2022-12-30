@@ -8,10 +8,10 @@
 * [Day 6](./day06): C#
 * [Day 7](./day07): PHP
 * [Day 8](./day08): JavaScript
-* Day 9: Bash
+* [Day 9](./day09): Bash
 * Day 10: Haskell
 * Day 11: Go
-* Day 12: Delphi/Pascal
+* Day 12: Delphi / Pascal
 * Day 13: Ruby
 * Day 14: FoxPro
 * Day 15: Perl

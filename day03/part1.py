@@ -1,4 +1,4 @@
-file = open("puzzle.txt", "r")
+file = open("input.txt", "r")
 lines = file.readlines()
 
 total = 0
