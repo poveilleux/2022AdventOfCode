@@ -24,7 +24,7 @@ $ ls
 7214296 k";
 class Item {
 	public string $name = "";
-	public array $children = [];
+	public ?array $children = NULL;
 	public int $size = 0;
 	public ?Item $parent = NULL;
 }
@@ -32,6 +32,7 @@ class Item {
     $lines = explode("\r\n", $input);
     $tree = new Item;
     $tree->name = "/";
+    $tree->children = array();
     $currentDirectory = $tree;
 
     $line = array_shift($lines);
@@ -49,15 +50,15 @@ class Item {
 
 		    	$line = array_shift($lines);
 		    	$tokens = explode(" ", $line);
-    			
     		} else if ($tokens[1] == "ls") {
 		    	$line = array_shift($lines);
 		    	$tokens = explode(" ", $line);
-		    	
+
 		    	while ($tokens[0] != "$") {
 		    		if ($tokens[0] == "dir") {
 		    			$dir = new Item;
 		    			$dir->name = $tokens[1];
+		    			$dir->children = array();
 		    			$dir->parent = $currentDirectory;
 		    			$currentDirectory->children[$tokens[1]] = $dir;
 		    		} else {
@@ -66,7 +67,7 @@ class Item {
 		    			$file->size = intval($tokens[0]);
 		    			$currentDirectory->children[$tokens[1]] = $file;
 		    		}
-		    		
+
 		    		if (count($lines) == 0) {
 		    		    break;
 		    		}
@@ -85,6 +86,28 @@ class Item {
     	}
     }
 
-	print_r($tree);
+    $sum = 0;
+
+    function calculate_size($current) {
+    	global $sum;
+
+		foreach ($current->children as $item) {
+			if ($item->children != NULL) {
+				calculate_size($item);
+			}
+		}
+
+		foreach ($current->children as $item) {
+			$current->size = $current->size + $item->size;
+		}
+		#echo "Size of $current->name: $current->size\n";
+		if ($current->size <= 100000) {
+			$sum = $sum + $current->size;
+		}
+    }
+
+	calculate_size($tree);
+	echo "The result for part 1 is: $sum\n";
+	#print_r($tree);
     echo "DONE\n";
 ?>
