@@ -33,9 +33,9 @@ class Item {
     $tree = new Item;
     $tree->name = "/";
     $currentDirectory = $tree;
-    
-  	$line = array_shift($lines);
-  	$tokens = explode(" ", $line);
+
+    $line = array_shift($lines);
+    $tokens = explode(" ", $line);
     while (count($lines) > 0) {
     	if ($tokens[0] == "$") {
     		if ($tokens[1] == "cd") {
@@ -46,7 +46,7 @@ class Item {
     			} else {
     				$currentDirectory = $currentDirectory->children[$tokens[2]];
     			}
-    			# TODO: change path
+
 		    	$line = array_shift($lines);
 		    	$tokens = explode(" ", $line);
     			
@@ -78,40 +78,13 @@ class Item {
 	    		print_r($tokens);
     			die();
 	    	}
-    		
     	} else {
     		echo "FATAL: unexpected tokens ";
     		print_r($tokens);
     		die();
     	}
     }
-    
+
 	print_r($tree);
     echo "DONE\n";
-    
-    
-    #$currentDir = array();
-    #$currentDirectory = NULL;
-    #foreach ($lines as $line) {
-    #    if (str_starts_with($line, "$ cd ")) {
-    #        $path = str_replace("$ cd ", "", $line);
-    #        if ($path == "/") {
-    #        	array_push($currentDir, $path);
-    #        	$currentDirectory = new Item;
-    #        	$currentDirectory->name = $path;
-    #        } else if ($path == "..") {
-    #        	array_pop($currentDir);
-    #        	$
-    #        } else {
-    #        	array_push($currentDir, $path);
-    #        	$item = new Item;
-    #        	$item->name = $path;
-    #        	//$tree[$path] = $item;
-    #        }
-    #    	#print_r($currentDir);
-    #        #echo "CD: '$path'";
-    #    }
-    #    # echo "$i: $line\n";
-    #    # $i++;
-    #}
 ?>
