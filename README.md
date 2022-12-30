@@ -1,15 +1,15 @@
 # [2022 Advent Of Code](https://adventofcode.com/2022)
 
-* [Day 1](./day01): Java
-* [Day 2](./day02): C
-* [Day 3](./day03): Python
-* [Day 4](./day04): C++
-* [Day 5](./day05): VB.NET
-* [Day 6](./day06): C#
-* [Day 7](./day07): PHP
-* [Day 8](./day08): JavaScript
-* [Day 9](./day09): Bash
-* Day 10: Haskell
+* [Day 1](./day01/): Java
+* [Day 2](./day02/): C
+* [Day 3](./day03/): Python
+* [Day 4](./day04/): C++
+* [Day 5](./day05/): VB.NET
+* [Day 6](./day06/): C#
+* [Day 7](./day07/): PHP
+* [Day 8](./day08/): JavaScript
+* [Day 9](./day09/): Bash (not done)
+* [Day 10](./day10/): Haskell
 * Day 11: Go
 * Day 12: Delphi / Pascal
 * Day 13: Ruby
