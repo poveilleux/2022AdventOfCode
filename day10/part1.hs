@@ -10,18 +10,32 @@ split x y = func x y [[]]
         else
             func x ys ((y:z):zs)
 
-myFunc cycle = do
+isCycle :: Integer -> Bool
+isCycle num
+    | num == 20 = True
+    | num == 60 = True
+    | num == 100 = True
+    | num == 140 = True
+    | num == 180 = True
+    | num == 220 = True
+    | otherwise = False
+
+myFunc cycle x = do
     done <- isEOF
     if done then
         putStrLn ("The result for part 1 is " ++ (show cycle))
     else do
         line <- getLine
-        if line == "noop" then
-            putStrLn "FOO"
+        if line == "noop" && (isCycle cycle) then
+            do 
+                print cycle
+                myFunc (cycle + 1) x
+        else if line == "noop" then
+            do 
+                myFunc (cycle + 1) x
         else do
             let numAsStr = (split ' ' line)!!1
-            let add = read numAsStr :: Integer
-            print add
-        myFunc (cycle + 1)
+            let addValue = read numAsStr :: Integer
+            myFunc (cycle + 2) x
 
-main = myFunc 1
+main = myFunc 0 1
